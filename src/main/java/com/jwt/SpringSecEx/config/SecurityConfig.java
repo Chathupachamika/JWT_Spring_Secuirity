@@ -29,12 +29,25 @@ public class SecurityConfig {
 //        http.formLogin(Customizer.withDefaults());
     }
 
-    @Bean
-    public UserDetailsService userDetailsService(){
 
-        UserDetails userDetails = User
-                .
-
-        return new InMemoryUserDetailsManager();
-    }
+//    @Bean
+//    public UserDetailsService userDetailsService(){
+//
+//        UserDetails user1 = User
+//                .withDefaultPasswordEncoder()
+//                .username("chathupa")
+//                .password("k@123")
+//                .roles("USER")
+//                .build();
+//
+//        UserDetails user2 = User
+//                .withDefaultPasswordEncoder()
+//                .username("saman")
+//                .password("k@123")
+//                .roles("ADMIN")
+//                .build();
+//
+//
+//        return new InMemoryUserDetailsManager(user1,user2);
+//    }
 }
