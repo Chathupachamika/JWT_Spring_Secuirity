@@ -32,7 +32,10 @@ public class SecurityConfig {
 
           return http
                   .csrf(customzer -> customzer.disable())
-                  .authorizeHttpRequests(request -> request.anyRequest().authenticated())
+                  .authorizeHttpRequests(request -> request
+                          .requestMatchers("register", "login")
+                          .permitAll()
+                          .anyRequest().authenticated())
                   .httpBasic(Customizer.withDefaults())
                   .sessionManagement(session-> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                   .build();
@@ -48,6 +51,10 @@ public class SecurityConfig {
         return provider;
     }
 
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
+    }
 //    @Bean
 //    public UserDetailsService userDetailsService(){
 //
@@ -69,8 +76,4 @@ public class SecurityConfig {
 //        return new InMemoryUserDetailsManager(user1,user2);
 //    }
 
-    @Bean
-    public AuthenticationManager authenticationManager (AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();
-    }
 }
