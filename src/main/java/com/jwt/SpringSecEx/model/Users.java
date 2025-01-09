@@ -1,7 +1,10 @@
 package com.jwt.SpringSecEx.model;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.*;
+
 
 @Setter
 @Getter
@@ -9,7 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Ent
+@Entity
 public class Users {
     @Id
     private int id;
