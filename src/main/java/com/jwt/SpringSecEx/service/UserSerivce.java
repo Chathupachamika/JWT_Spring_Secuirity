@@ -3,6 +3,7 @@ package com.jwt.SpringSecEx.service;
 import com.jwt.SpringSecEx.model.Users;
 import com.jwt.SpringSecEx.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.pulsar.PulsarProperties;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,18 +24,24 @@ public class UserSerivce {
 
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 
-    public Users register(Users users){
-        users.setPassword(encoder.encode(users.getPassword()));
+    public Users register(Users users) {
         users.setPassword(encoder.encode(users.getPassword()));
         return repo.save(users);
     }
 
     public String verify(Users user) {
-        Authentication authentication =
-                authManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
+            Authentication authentication =
+                    authManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword())
+            );
 
-        if(authentication.isAuthenticated())
-            return jwtService.generateToken();
-        return "fail";
+            if (authentication.isAuthenticated())
+                return "Success";
+
+
+            return "fail";
+
+
+
     }
 }
