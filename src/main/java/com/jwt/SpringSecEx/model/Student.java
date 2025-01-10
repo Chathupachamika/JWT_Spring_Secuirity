@@ -1,4 +1,4 @@
-package com.jwt.SpringSecEx;
+package com.jwt.SpringSecEx.model;
 
 import lombok.*;
 
