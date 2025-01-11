@@ -1,25 +1,139 @@
-# JWT Authentication with Spring Security 🌐🔐
+# JWT_Spring_Security 🚀 🔐
 
-Welcome to the **JWT Spring Security** repository! 🚀
-
-This project demonstrates how to implement **JSON Web Token (JWT)** authentication and authorization using **Spring Security** in a Java-based application. It provides a secure and scalable way to manage access control in modern web applications. ⚙️🔑
+**Secure your Spring Boot applications with JSON Web Tokens (JWT)** using Spring Security. This repository demonstrates best practices for implementing JWT-based authentication and authorization in Spring applications.
 
 ---
 
-## Features ✨
-
-- **JWT Authentication**: Securely authenticate users with JWT tokens. 🛡️
-- **Spring Security Integration**: Seamlessly integrates JWT with Spring Security for enhanced security. 🔒
-- **Scalable Authorization**: Easily extend the application to add more roles and permissions. 📈
-- **Maven Build**: Simple setup and configuration with Maven. 🏗️
+## 🌟 Features
+- 🎫 **JWT Authentication**: Robust token-based user authentication
+- 🛡️ **Spring Security Integration**: Comprehensive security configuration
+- 🔒 **Role-Based Authorization**: Flexible access control with user roles
+- 🛠️ **Easy Configuration**: Modular and customizable security setup
+- 📜 **Detailed Documentation**: Clear implementation guidelines
 
 ---
 
-## Project Setup 🖥️
+## 📦 Installation
 
-To run this project locally, follow these steps:
-
-1. **Clone the repository**:  
-   Clone this repository to your local machine using Git.
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/Chathupachamika/JWT_Spring_Secuirity.git
+   git clone https://github.com/yourusername/JWT_Spring_Security.git
+   cd JWT_Spring_Security
+   ```
+
+2. **Configure application properties**
+   Create `application.properties` in `src/main/resources`:
+   ```properties
+   server.port=8080
+   jwt.secret=your_jwt_secret_key
+   jwt.expiration=86400000
+   ```
+
+3. **Build the project**
+   ```bash
+   mvn clean install
+   ```
+
+---
+
+## 🛠️ Usage
+
+1. **Start the application**
+   ```bash
+   mvn spring-boot:run
+   ```
+
+2. **API Endpoints**
+   - **Register**: `/api/auth/register` (POST) - Create new user account
+   - **Login**: `/api/auth/login` (POST) - Authenticate and get JWT
+   - **Protected**: `/api/secure` (GET) - Access secured endpoint
+
+---
+
+## 📝 Sample Request & Response
+
+### 🔑 Login Endpoint
+**Request:**
+```json
+{
+  "username": "user@example.com",
+  "password": "password123"
+}
+```
+
+**Response:**
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "type": "Bearer",
+  "username": "user@example.com",
+  "roles": ["ROLE_USER"]
+}
+```
+
+### 🔒 Protected Route
+**Request Header:**
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
+
+**Response:**
+```json
+{
+  "message": "Protected resource accessed successfully!"
+}
+```
+
+---
+
+## 📂 Project Structure
+```plaintext
+JWT_Spring_Security/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── config/
+│   │   │   │   ├── SecurityConfig.java
+│   │   │   │   └── JwtConfig.java
+│   │   │   ├── controller/
+│   │   │   │   └── AuthController.java
+│   │   │   ├── model/
+│   │   │   │   └── User.java
+│   │   │   ├── security/
+│   │   │   │   ├── JwtTokenProvider.java
+│   │   │   │   └── JwtAuthenticationFilter.java
+│   │   │   └── service/
+│   │   │       └── UserService.java
+│   │   └── resources/
+│   │       └── application.properties
+│   └── test/
+└── pom.xml
+```
+
+---
+
+## 🛡️ Security Best Practices
+- Use strong secret keys for JWT signing
+- Implement token expiration
+- Enable CORS and CSRF protection
+- Use secure password hashing (BCrypt)
+- Implement refresh token mechanism
+- Regular security updates and patches
+
+---
+
+## 🤝 Contributing
+Contributions are welcome! 🎉 Please feel free to submit issues and pull requests.
+
+---
+
+## 📜 License
+This project is licensed under the MIT License.
+
+---
+
+## 📧 Contact
+For questions and support, contact [your.email@example.com](mailto:your.email@example.com)
+
+---
+Made with ❤️ by the Chathupa Chamika
