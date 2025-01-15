@@ -133,7 +133,7 @@ This project is licensed under the MIT License.
 ---
 
 ## 📧 Contact
-For questions and support, contact [your.email@example.com](mailto:your.email@example.com)
+For questions and support, contact [chathupachamika765@gmail.com](chathupachamika765@gmail.com)
 
 ---
 Made with ❤️ by the Chathupa Chamika
